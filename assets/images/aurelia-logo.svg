@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" role="img" aria-label="Aurelia Private Property Studio">
+  <rect width="220" height="64" fill="none"/>
+  <path d="M9 45V18l13-9 13 9v27M15 45V25h14v20M39 45V18l13-9 13 9v27M45 45V25h14v20" fill="none" stroke="#d4b77f" stroke-width="1.4"/>
+  <text x="77" y="31" fill="#ffffff" font-family="Georgia,serif" font-size="20" letter-spacing="4">AURELIA</text>
+  <text x="78" y="46" fill="#d4b77f" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" letter-spacing="2.6">PRIVATE PROPERTY STUDIO</text>
+</svg>
