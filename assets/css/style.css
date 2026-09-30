@@ -332,19 +332,20 @@ a {
 }
 
 .masonry {
-  columns: 2 360px;
-  column-gap: 28px
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
 }
 
 .masonry-item {
-  break-inside: avoid;
-  margin-bottom: 28px;
   position: relative;
   overflow: hidden
 }
 
 .masonry-item img {
   width: 100%;
+  height: 460px;
+  object-fit: cover;
   display: block;
   transition: 1s var(--ease)
 }
@@ -859,6 +860,10 @@ a {
     display: none
   }
 
+  .navbar .nav-link.active {
+    color: #d4b77f !important;
+  }
+
   .navbar .btn-lux {
     width: 100%;
     margin: 16px 0 0 !important
@@ -934,11 +939,12 @@ a {
   }
 
   .masonry {
-    columns: 1
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .masonry-item {
-    margin-bottom: 20px
+    margin-bottom: 0
   }
 
   .masonry-caption {
@@ -1288,6 +1294,12 @@ a {
     grid-template-columns: repeat(2, 1fr)
   }
 
+  .signature-grid > :nth-child(3) {
+    grid-column: 1 / -1;
+    width: calc(50% - 14px);
+    margin: 0 auto;
+  }
+
   .archive-grid,
   .enquiry-intro,
   .enquiry-form-wrap {
@@ -1307,6 +1319,10 @@ a {
 @media(max-width:767.98px) {
   .signature-grid {
     grid-template-columns: 1fr
+  }
+
+  .signature-grid > :nth-child(3) {
+    width: 100%;
   }
 
   .signature-card,
