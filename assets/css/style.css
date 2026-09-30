@@ -1319,3 +1319,138 @@ a {
     min-height: 340px
   }
 }
+/* AURELIA CORRECTION PASS — responsive spacing, logo, forms and tablet layout */
+.aurelia-logo {
+  display: inline-flex !important;
+  align-items: center;
+  width: 220px;
+  height: 64px;
+  padding: 0 !important;
+  flex: 0 0 auto;
+}
+.aurelia-logo img {
+  width: 220px;
+  height: 64px;
+  display: block;
+  object-fit: contain;
+}
+.navbar-brand.aurelia-logo::after,
+.navbar-brand.aurelia-logo span { display:none !important; }
+
+/* Improve small supporting copy without disturbing the editorial scale. */
+.kicker,
+.hero-kicker { font-size: .78rem; letter-spacing: .28em; }
+.hero-copy { font-size: 1.08rem; line-height: 1.8; }
+.page-head p,
+.lead-lg { font-size: 1.16rem; line-height: 1.8; }
+.nav-link { font-size: .72rem; }
+.search-tabs button { font-size: .76rem; }
+.form-control,
+.form-select { font-size: .95rem; color: #27251f; background-color:#fff; width:100%; max-width:100%; min-width:0; }
+.form-select option { color:#27251f; background:#fff; }
+
+/* Keep the form fields inside the viewport at every breakpoint. */
+.search-box,
+.search-box .row,
+.search-box [class*="col-"] { min-width:0; max-width:100%; }
+.search-box .btn-lux { min-width:0; }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container { max-width: 960px; }
+  .navbar .container { grid-template-columns: 220px 1fr auto; }
+  .aurelia-logo, .aurelia-logo img { width:200px; height:58px; }
+  .navbar .nav-link { margin:0 .25rem; letter-spacing:.12em; }
+  .navbar .btn-lux { padding:12px 16px; }
+
+  /* Avoid the uneven CSS-column gap visible around 1024px. */
+  .masonry {
+    columns: unset;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px;
+  }
+  .masonry-item { margin-bottom:0; }
+
+  .journal-card:nth-child(3) { margin-left:auto; margin-right:auto; }
+
+  /* Search/filter controls stay inside the card rather than overflowing. */
+  .search-box .row > [class*="col-"] { flex:0 0 auto; }
+}
+
+@media (max-width: 991.98px) {
+  .container {
+    --bs-gutter-x: 1.5rem;
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    padding-right: calc(var(--bs-gutter-x) * .5);
+  }
+  .aurelia-logo,
+  .aurelia-logo img { width: 190px; height:56px; }
+  .navbar-brand { margin-right:0; }
+  .hero-inner,
+  .page-head > .container { padding-left: 18px; padding-right:18px; }
+  .navbar .navbar-collapse { width:100%; max-width:100%; overflow:hidden; }
+  .search-box { width:100%; overflow:visible; }
+  .search-box .row { margin-left:0; margin-right:0; }
+  .search-box .row > [class*="col-"] { padding-left:0; padding-right:0; margin-bottom:10px; }
+  .search-box .btn-lux { width:100%; }
+  .form-select,
+  .form-control { width:100%; }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container { max-width: 720px; }
+  .journal-card:nth-child(3) { margin-left:auto; margin-right:auto; }
+  .journal-card { max-width: 360px; }
+  .search-box .row > [class*="col-"] { width:100%; }
+  .hero-inner { padding-top:165px; padding-bottom:75px; }
+}
+
+@media (max-width: 767.98px) {
+  .container { max-width:100%; }
+  .aurelia-logo,
+  .aurelia-logo img { width:175px; height:52px; }
+  .hero-inner { padding-left:18px; padding-right:18px; }
+  .hero h1 { margin-left:0; margin-right:0; }
+  .hero-copy { max-width:100%; font-size:1rem; }
+  .kicker,
+  .hero-kicker { font-size:.72rem; letter-spacing:.2em; }
+  .page-head p,
+  .lead-lg { font-size:1.02rem; }
+  .search-box { padding:18px; }
+  .search-tabs { flex-wrap:nowrap; }
+  .search-tabs button { flex:0 0 auto; }
+  .journal-card:nth-child(3) { margin-left:0; margin-right:0; max-width:none; }
+}
+
+@media (max-width: 420px) {
+  .aurelia-logo,
+  .aurelia-logo img { width:165px; height:50px; }
+  .hero-inner,
+  .page-head > .container { padding-left:16px; padding-right:16px; }
+}
+
+
+/* MOBILE / TABLET SELECT FIX
+   Custom dropdowns keep the option panel exactly within the field width
+   and viewport instead of allowing native option lists to extend off-screen. */
+.aurelia-select-wrap{position:relative;width:100%;min-width:0;max-width:100%;}
+.aurelia-select-native{width:100%;max-width:100%;min-width:0;}
+.aurelia-select-toggle{display:flex;width:100%;min-width:0;max-width:100%;min-height:49px;align-items:center;justify-content:space-between;gap:12px;padding:12px 42px 12px 15px;border:1px solid var(--line);border-radius:0;background:#fff;color:#27251f;font:inherit;font-size:.95rem;line-height:1.3;text-align:left;position:relative;cursor:pointer;box-sizing:border-box;}
+.aurelia-select-toggle::after{content:"";position:absolute;right:16px;top:50%;width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-65%) rotate(45deg);transition:transform .2s ease;}
+.aurelia-select-wrap.open .aurelia-select-toggle::after{transform:translateY(-30%) rotate(225deg);}
+.aurelia-select-menu{position:absolute;left:0;right:0;top:calc(100% + 2px);width:100%;max-width:100%;max-height:260px;overflow-y:auto;overflow-x:hidden;padding:4px 0;margin:0;list-style:none;background:#fff;border:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.12);z-index:9999;display:none;box-sizing:border-box;}
+.aurelia-select-wrap.open .aurelia-select-menu{display:block;}
+.aurelia-select-wrap.open-up .aurelia-select-menu{top:auto;bottom:calc(100% + 2px);}
+.aurelia-select-option{display:block;width:100%;padding:11px 15px;border:0;background:#fff;color:#27251f;font-size:.95rem;line-height:1.35;text-align:left;white-space:normal;overflow-wrap:anywhere;cursor:pointer;box-sizing:border-box;}
+.aurelia-select-option:hover,.aurelia-select-option:focus{background:#f1eee7;outline:none;}
+.aurelia-select-option.selected{background:#eee8dc;}
+@media (max-width:991.98px){
+  .aurelia-select-native{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;opacity:0!important;}
+  .search-box,.search-box .row,.search-box [class*="col-"],form,.contact-grid,.enquiry-form-wrap{min-width:0;max-width:100%;}
+  .aurelia-select-wrap{min-width:0;max-width:100%;}
+  .aurelia-select-toggle{font-size:16px;}
+  .aurelia-select-option{font-size:16px;}
+}
+@media (max-width:767.98px){
+  .aurelia-select-menu{max-height:220px;}
+}
